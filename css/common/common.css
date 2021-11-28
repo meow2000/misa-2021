@@ -1,0 +1,32 @@
+@import url('../../css/layout/base.css');
+@import url('../../css/layout/header.css');
+@import url('../../css/layout/content.css');
+@import url('../../css/layout/sidebar.css');
+@import url('../../css/layout/navbar.css');
+@import url('../../css/component/icon.css');
+
+body {
+    font-family: notoSans;
+    margin: 0;
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+}
+
+@font-face {
+    font-family: notoSans;
+    src: url('../../Resource/fonts/notosans-regular.2cb88a13.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: notoSans-Bold;
+    src: url('../../Resource/fonts/notosans-bold.3ede5aff.woff2');
+}
+
+@font-face {
+    font-family: notoSans-Italic;
+    src: url('../../Resource/fonts/notosans-italic.1c1aaac9.woff2');
+}

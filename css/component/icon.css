@@ -1,0 +1,19 @@
+.sidebar__toggle-icon {
+    width: 24px;
+    margin-right: 10px;
+    height: 24px;
+    background-color: white;
+}
+
+.sidebar__logo-icon {
+    height: 32px;
+}
+
+.m-icon { 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /* position: relative;
+    display: inline-flex;
+    align-items: center; */
+}

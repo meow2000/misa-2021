@@ -1,0 +1,23 @@
+.navbar {
+    display: inline-flex;
+    z-index: 100;
+    height: 48px;
+    background-color: #fff;
+    align-items: center;
+}
+
+.navbar__left-container {
+
+}
+
+.left-container__expand-icon {
+    width: 24px;
+    height: 24px;
+    background-color: black;
+    margin: 0 10px;
+}
+
+.left-container__brand-text {
+    display: flex;
+
+}

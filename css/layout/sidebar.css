@@ -1,0 +1,30 @@
+.sidebar__logo-container {
+    align-items: center;
+    display: flex;
+    height: 48px;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.menu-container {
+    padding-top: 14px;
+}
+
+.menu-item {
+    padding-left: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item__icon {
+    background-color: white;
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+}
+
+.menu-item__content {
+    line-height: 42px;
+    color: #fff;
+    font-size: 13px;
+}
