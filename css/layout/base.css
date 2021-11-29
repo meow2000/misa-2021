@@ -9,7 +9,7 @@
     position: relative;
     overflow: hidden;
 }
-#content-area {
+#right-area {
     background-color: #f4f5f8;
     flex-grow: 1;
     position: relative;

@@ -1,3 +1,37 @@
 .content{
-    
+    overflow: hidden;
+    height: 100%;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.content__header {
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    justify-content: space-between;
+}
+.content__header__title {
+    font-family: notoSans-Bold;
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+}
+
+.content__header__button {
+    display: flex;
+    /* margin-right: 16px; */
+}
+
+.content-wrapper {
+    background-color: #fff;
+    height: 100%;
+    margin-top: 16px;
+}
+
+.content-wrapper__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }

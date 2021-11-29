@@ -4,7 +4,7 @@
 @import url('../../css/layout/sidebar.css');
 @import url('../../css/layout/navbar.css');
 @import url('../../css/component/icon.css');
-
+@import url('../../css/component/button.css');
 body {
     font-family: notoSans;
     margin: 0;

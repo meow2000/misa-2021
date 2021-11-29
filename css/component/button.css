@@ -1,0 +1,29 @@
+.m-btn{
+    background-color: #019160;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: normal;
+    padding-left: 24px;
+    padding-right: 24px;
+    text-align: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.m-btn:hover, .m-drop-down:hover{
+    background-color: #2FBE8E;
+}
+
+.m-btn:active, .m-drop-down:active{
+    background-color: #01B075;
+}
+
+.m-btn-add, .m-btn-save {
+    text-align: left;
+    padding-left: 16px;
+    padding-right: 16px;
+}

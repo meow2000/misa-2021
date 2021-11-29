@@ -4,20 +4,62 @@
     height: 48px;
     background-color: #fff;
     align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
 }
 
 .navbar__left-container {
-
+    display: flex;
 }
 
 .left-container__expand-icon {
     width: 24px;
     height: 24px;
     background-color: black;
-    margin: 0 10px;
+    margin: 0 10px 0 16px ;
 }
 
-.left-container__brand-text {
+.left-container__brand {
     display: flex;
+    padding-left: 10px;
+    align-items: center;
+}
 
+.brand__name {
+    font-weight: 600;
+    font-size: 14px;
+    
+}
+
+.navbar__right-container {
+    display: flex;
+    height: 36px;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.right-container__bell-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 16px;
+    background-color: black;
+}
+
+.right-container__avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    background-color: black;
+}
+
+.right-container__username {
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 8px;
+}
+.right-container__dropdown-icon {
+    /* margin-right: 16px; */
+    width: 15px;
+    height: 20px;
+    background-color: black;
 }
