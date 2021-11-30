@@ -1,10 +1,12 @@
 @import url('../../css/layout/base.css');
-@import url('../../css/layout/header.css');
 @import url('../../css/layout/content.css');
 @import url('../../css/layout/sidebar.css');
 @import url('../../css/layout/navbar.css');
 @import url('../../css/component/icon.css');
 @import url('../../css/component/button.css');
+@import url('../../css/component/table.css');
+@import url('../../css/component/checkbox.css');
+
 body {
     font-family: notoSans;
     margin: 0;

@@ -16,15 +16,54 @@
     align-items: center;
 }
 
-.menu-item__icon {
-    background-color: white;
-    margin-right: 8px;
-    width: 24px;
-    height: 24px;
-}
-
 .menu-item__content {
     line-height: 42px;
     color: #fff;
     font-size: 13px;
+}
+
+.menu-item__icon--dashboard {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -30px -1628px;
+}
+.menu-item__icon--cash {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -73px -1628px;
+}
+.menu-item__icon--bank {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -117px -1628px;
+}
+.menu-item__icon--purchase {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -161px -1628px;
+}
+.menu-item__icon--sell {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -204px -1628px;
+}
+.menu-item__icon--invoice {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -249px -1628px;
+}
+.menu-item__icon--stock {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -291px -1628px;
+}
+.menu-item__icon--tool {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -336px -1628px;
+}
+.menu-item__icon--fixed-assets {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -378px -1630px;
+}
+.menu-item__icon--tax {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -423px -1630px;
+}
+.menu-item__icon--price {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -467px -1628px;
+}
+.menu-item__icon--general {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -510px -1628px;
+}
+.menu-item__icon--budget {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -378px -1659px;
+}
+.menu-item__icon--report {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -547px -1628px;
+}
+.menu-item__icon--finance {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -204px -1664px;
 }

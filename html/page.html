@@ -7,7 +7,8 @@
     <!-- css -->
     <link rel="stylesheet" href="../css/common/common.css">
     <!-- jquery -->
-    <link rel="stylesheet" href="../js/lib/jquery-3.6.0.min.js">
+    <script src="../js/lib/jquery-3.6.0.min.js"></script>
+    <script src="../js/JqueryCrud.js"></script>
     <title>Nhân viên</title>
 </head>
 <body>
@@ -23,69 +24,70 @@
         <!-- menu container block -->
         <div class="menu-container">
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--dashboard"></div>
                 <div class="menu-item__content">Tổng quan</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--cash"></div>
                 <div class="menu-item__content">Tiền mặt</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--bank"></div>
                 <div class="menu-item__content">Tiền gửi</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--purchase"></div>
                 <div class="menu-item__content">Mua hàng</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--sell"></div>
                 <div class="menu-item__content">Bán hàng</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--invoice"></div>
                 <div class="menu-item__content">Quản lý hóa đơn</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--stock"></div>
                 <div class="menu-item__content">Kho</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--tool"></div>
                 <div class="menu-item__content">Công cụ dụng cụ</div>
             </div>
-            <div class="menu-item">
-                <div class="menu-item__icon"></div>
+            <div class="menu-item ">
+                <div class="menu-item__icon menu-item__icon--fixed-assets"></div>
                 <div class="menu-item__content">Tài sản cố định</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--tax"></div>
                 <div class="menu-item__content">Thuế</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--price"></div>
                 <div class="menu-item__content">Giá thành</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--general"></div>
                 <div class="menu-item__content">Tổng hợp</div>
             </div>
-            <div class="menu-item">
-                <div class="menu-item__icon"></div>
+            <div class="menu-item ">
+                <div class="menu-item__icon menu-item__icon--budget"></div>
                 <div class="menu-item__content">Ngân sách</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--report"></div>
                 <div class="menu-item__content">Báo cáo</div>
             </div>
             <div class="menu-item">
-                <div class="menu-item__icon"></div>
+                <div class="menu-item__icon menu-item__icon--finance"></div>
                 <div class="menu-item__content">Phân tích tài chính</div>
             </div>
         </div>
     </div>
-    <!-- content + navbar -->
+    <!-- right area -->
     <div id="right-area" class="col">
+        <!-- nav bar -->
         <div class="navbar">
             <div class="navbar__left-container">
                 <div class="left-container__expand-icon"></div>
@@ -102,19 +104,75 @@
                 <div class="right-container__dropdown-icon"></div>
             </div>
         </div>
+        <!-- content -->
         <div class="content">
+            <!-- content header -->
             <div class="content__header">
                 <div class="content__header__title">Nhân viên</div>
                 <div class="content__header__button">
                     <button class="m-btn">Thêm mới nhân viên</button>
                 </div>
             </div>
+            <!-- content table + footer -->
             <div class="content-wrapper">
+                <!-- search and refresh button -->
                 <div class="content-wrapper__header">
                     <div class="content-wrapper__header__search-input"></div>
-                    <div class="content-wrapper__header__refresh-btn"></div>
+                    <div class="content-wrapper__header__refresh-btn">
+                        <div class="refresh-btn"></div>
+                    </div>
                 </div>
-                <div class="content-wrapper__table"></div>
+                <!-- table content -->
+                <div class="content-wrapper__table-wrapper m-grid">
+                    <table id="tblEmployee" class="m-table">
+                        <thead class = m-thead>
+                            <tr class="m-tr">
+                                <th class="m-th m-multi-checkall">
+                                    <label class="checkbox-wrapper">
+                                        <input type="checkbox">
+                                        <span class="m-checkbox" id="m-checkbox"></span>
+                                    </label>
+                                </th>
+                                <th class="m-th text-align-left" fieldvalue="">MÃ NHÂN VIÊN</th>
+                                <th class="m-th text-align-left">TÊN NHÂN VIÊN</th>
+                                <th class="m-th text-align-left">GIỚI TÍNH</th>
+                                <th class="m-th text-align-center">NGÀY SINH</th>
+                                <th class="m-th text-align-left">SỐ CMND</th>
+                                <th class="m-th text-align-left">CHỨC DANH</th>
+                                <th class="m-th text-align-left">TÊN ĐƠN VỊ</th>
+                                <th class="m-th text-align-left">SỐ TÀI KHOẢN</th>
+                                <th class="m-th text-align-left">TÊN NGÂN HÀNG</th>
+                                <th class="m-th text-align-left">CHI NHÁNH NGÂN HÀNG</th>
+                                <th class="m-th text-align-center">CHỨC NĂNG</th>
+                            </tr>
+                        </thead>
+                        <tbody class="m-tbody">
+                            <tr class="m-tr">
+                                <td class="m-th m-multi-check">
+                                    <label class="checkbox-wrapper">
+                                        <input type="checkbox">
+                                        <span class="m-checkbox" id="m-checkbox"></span>
+                                    </label>
+                                </td>
+                                <td class="m-th text-align-left" fieldvalue="">MÃ NHÂN VIÊN</td>
+                                <td class="m-th text-align-left">TÊN NHÂN VIÊN</td>
+                                <td class="m-th text-align-left">GIỚI TÍNH</td>
+                                <td class="m-th text-align-center">NGÀY SINH</td>
+                                <td class="m-th text-align-left">SỐ CMND</td>
+                                <td class="m-th text-align-left">CHỨC DANH</td>
+                                <td class="m-th text-align-left">TÊN ĐƠN VỊ</td>
+                                <td class="m-th text-align-left">SỐ TÀI KHOẢN</td>
+                                <td class="m-th text-align-left">TÊN NGÂN HÀNG</td>
+                                <td class="m-th text-align-left">CHI NHÁNH NGÂN HÀNG</td>
+                                <td class="m-th text-align-center">Sửa</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="content-wrapper__pagination">
+                    <div class="content-wrapper__pagination__left">Tổng số <b>1055</b> bản ghi</div>
+                    <div class="content-wrapper__pagination__right"></div>
+                </div>
             </div>
         </div>
     </div>

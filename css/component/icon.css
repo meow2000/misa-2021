@@ -2,7 +2,7 @@
     width: 24px;
     margin-right: 10px;
     height: 24px;
-    background-color: white;
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -424px -86px;
 }
 
 .sidebar__logo-icon {
@@ -16,4 +16,10 @@
     /* position: relative;
     display: inline-flex;
     align-items: center; */
+}
+
+.menu-item__icon {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
 }

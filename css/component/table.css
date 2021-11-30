@@ -1,0 +1,65 @@
+table.m-table {
+    border-spacing: 0;
+    width: 100%;
+    border-collapse: separate;
+}
+table.m-table tr {
+    height: 48px;
+    border-bottom: 0.7px solid rgb(192, 192, 192);
+}
+
+table.m-table tbody tr {
+    cursor: pointer;
+}
+table.m-table tbody tr:hover {
+    background-color: #f4f5f8;
+}
+table.m-table thead th {
+    position: sticky;
+    top: 0;
+    font-weight: bold;
+    background-color: #eceef1;
+}
+table.m-table td, th { 
+    padding: 0 5px;
+    border-right: 1px solid #c7c7c7;
+    border-bottom: 1px solid #c7c7c7;
+    font-size: 12px;
+}
+
+table.m-table thead tr {
+    background-color: #eceef1;
+}
+
+.m-multi-checkall {
+    z-index: 2;
+    min-width: 38px;
+    width: 38px;
+    max-width: 38px;
+    border-left: 1px solid #c7c7c7;
+}
+
+.m-multi-check {
+    min-width: 38px;
+    width: 38px;
+    max-width: 38px;
+    border-left: 1px solid #c7c7c7;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.m-grid {
+    flex: 1;
+    margin-bottom: 48px;
+    overflow: auto;
+}

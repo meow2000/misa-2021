@@ -15,7 +15,7 @@
 .left-container__expand-icon {
     width: 24px;
     height: 24px;
-    background-color: black;
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -843px -30px;
     margin: 0 10px 0 16px ;
 }
 
@@ -42,7 +42,7 @@
     width: 30px;
     height: 30px;
     margin-right: 16px;
-    background-color: black;
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -788px -30px;
 }
 
 .right-container__avatar {
@@ -61,5 +61,5 @@
     /* margin-right: 16px; */
     width: 15px;
     height: 20px;
-    background-color: black;
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -944px -360px;
 }

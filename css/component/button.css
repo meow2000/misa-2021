@@ -27,3 +27,13 @@
     padding-left: 16px;
     padding-right: 16px;
 }
+
+.refresh-btn {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -423px -201px;
+    width: 24px;
+    height: 24px;
+}
+
+.refresh-btn:hover {
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -1097px -88px;
+}
