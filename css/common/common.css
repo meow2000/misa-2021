@@ -6,6 +6,9 @@
 @import url('../../css/component/button.css');
 @import url('../../css/component/table.css');
 @import url('../../css/component/checkbox.css');
+@import url('../../css/component/popup.css');
+@import url('../../css/component/input.css');
+@import url('../../css/component/radioButton.css');
 
 body {
     font-family: notoSans;
@@ -16,6 +19,49 @@ body {
     display: flex;
     overflow: hidden;
     position: absolute;
+}
+
+.m-row {
+    width: 100%;
+}
+
+.m-row-flex {
+    display: flex;
+}
+
+.m-col-w100 {
+    width: 100%;
+}
+
+.m-col-w50 {
+    width: 50%;
+}
+
+.m-col-w25 {
+    width: 25%;
+}
+.m-col-w30 {
+    width: 30%;
+}
+
+.m-col-w40 {
+    width: 40%;
+}
+
+.m-col-w60 {
+    width: 60%;
+}
+
+.m-col-w70 {
+    width: 70%;
+}
+
+.m-col+.m-col {
+    padding-left: 10px;
+}
+
+.m-row+.m-row {
+    padding-top: 10px;
 }
 
 @font-face {

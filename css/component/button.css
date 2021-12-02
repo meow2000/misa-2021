@@ -37,3 +37,8 @@
 .refresh-btn:hover {
     background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -1097px -88px;
 }
+
+.td__edit-btn {
+    font-weight: 600;
+    padding-left: 16px;
+}

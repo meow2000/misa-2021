@@ -113,3 +113,22 @@
     justify-content: right;
     padding-right: 16px;
 }
+
+.td__edit-delete-wrapper {    
+    display: flex;
+    align-items: center;
+    color: #0075c0;
+}
+
+.td__dropdown-icon {
+    width: 16px;
+    height: 16px;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px;
+    background: url('../../Resource/img/Sprites.64af8f61.svg') no-repeat -896px -359px;
+}
+
+.td__dropdown-icon:hover {
+    border: 1px solid #0075c0;
+}

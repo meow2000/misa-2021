@@ -1,0 +1,60 @@
+.m-input {
+    border-radius: 4px;
+    height: 40px;
+    border: 1px solid #bbbbbb;
+    outline: unset;
+    padding: 0 16px; 
+}
+
+input.m-input {
+    position: relative;
+    border: 1px solid #bbbbbb;
+    border-radius: 2px;
+    height: 30px;
+    outline: unset;
+    padding: 0 8px;
+    background-color: unset;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.m-input::placeholder {
+    font-size: 12px;
+    color: #bbbbbb;
+}
+
+.m-input:focus {
+    border-color: #019160;
+}
+
+.m-input.m-input-error {
+    border-color: #FF4747;
+}
+
+input.m-input-search {
+    background-image: url('/source/Resource/icon/search.png');
+    background-repeat: no-repeat;
+    background-position: 16px center;
+    background-size: 16px 16px;
+    padding-left: 40px;
+}
+
+.m-combobox{
+    height:40px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    min-width: 130px;
+    outline: unset;
+}
+.m-combobox:focus{
+    border-color: #019160;
+}
+
+.m-label {
+    font-weight: bold;
+}
+
+.m-input-require {
+    color: red;
+}

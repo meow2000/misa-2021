@@ -1,0 +1,65 @@
+/* Customize the label (the container) */
+.radio-btn {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    /* margin-bottom: 12px; */
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  
+  /* Hide the browser's default radio button */
+.radio-btn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+}
+  
+  /* Create a custom radio button */
+.m-radio-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border: 1px solid #2ca01c;
+    /* background-color: #eee; */
+    border-radius: 50%;
+}
+     
+   /* When the radio button is checked, add a blue background */
+.radio-btn input:checked ~ .m-radio-btn {
+    background-color: #fff;
+} 
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+.m-radio-btn:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+  /* Show the indicator (dot/circle) when checked */
+.radio-btn input:checked ~ .m-radio-btn:after {
+    display: block;
+}
+  
+  /* Style the indicator (dot/circle) */
+.radio-btn .m-radio-btn:after {
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2ca01c;
+}
+
+.radio-btn+.radio-btn {
+    margin-left: 32px;
+}
