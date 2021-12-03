@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
     <link rel="stylesheet" href="../css/common/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <!-- jquery -->
     <script src="../js/lib/jquery-3.6.0.min.js"></script>
+    <script src="../js/common/combobox.js"></script>
+    <script src="../js/common/dropdown.js"></script>
     <script src="../js/JqueryCrud.js"></script>
     <title>Nhân viên</title>
 </head>
@@ -99,7 +102,7 @@
 
             <div class="navbar__right-container">
                 <div class="right-container__bell-icon"></div>
-                <div class="right-container__avatar"></div>
+                <div class="right-container__avatar m-icon"></div>
                 <div class="right-container__username">Nguyễn Văn Mạnh</div>
                 <div class="right-container__dropdown-icon"></div>
             </div>
@@ -119,7 +122,7 @@
                 <div class="content-wrapper__header">
                     <div class="content-wrapper__header__search-input"></div>
                     <div class="content-wrapper__header__refresh-btn">
-                        <div class="refresh-btn"></div>
+                        <button class="refresh-btn" onclick="loadData()"></button>
                     </div>
                 </div>
                 <!-- table content -->
@@ -167,7 +170,17 @@
                                 <td class="text-align-center">
                                     <div class="td__edit-delete-wrapper">
                                         <div id="edit-btn" class="td__edit-btn">Sửa</div>
-                                        <div id="delete-btn" class="td__dropdown-icon"></div>
+                                        <div class="td__dropdown dropdown-wrapper">
+                                            <!-- <button id="show-delete-popup-btn" class='td__dropdown-icon'></button> -->
+                                            <button id="dropdown-menu" class="td__dropdown-icon">
+                                                <div id="dropdown-content" class="td__dropdown-content dropdown-content">
+                                                    <div id="show-delete-popup-btn" class="dropdown-item">Xóa</div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <!-- <div id="edit-btn" class="td__edit-btn">Sửa</div> -->
+                                            <!-- <button id="delete-btn" class="td__dropdown-icon" value="${emp.EmployeeId}"></button> -->
+                                        <!-- <div id="delete-btn" class="td__dropdown-icon"></div> -->
                                     </div>
                                 </td>
                             </tr>
@@ -183,7 +196,7 @@
     </div>
     <div id="dlgPopup" class="m-dialog">
         <div class="m-row">
-            <div class="m-popup">
+            <div class="m-popup m-add-popup">
                 <!-- header -->
                 <div class="m-popup-header">
                     <div class="m-popup-header-title">
@@ -203,12 +216,11 @@
                             <div class="m-popup-header-title__provider-checkbox__text">Là nhà cung cấp</div>
                         </div>
                     </div>
-                    <div id="btnCloseDialog" class="m-popup-close"><i class="fas fa-times"></i></div>
+                    <div id="btnCloseDialog" class="m-popup-close"></div>
                 </div>
                 <!-- content -->
                 <div class="m-popup-content">
                     <div style="width: 100%;">
-
                         <div class="m-row m-row-flex">
                             <div class="m-col m-col-w50">
                                 <div class="m-row m-row-flex">
@@ -231,18 +243,18 @@
 
                                     <div class="m-col m-col-w60">
                                         <div class="m-label">Giới tính</div>
-                                        <div class="radio-btn-wrapper">
+                                        <div class="radio-btn-wrapper" id = "Gender">
                                             <label class="radio-btn">Nam
-                                                <input type="radio" name="gender" checked="checked">
-                                                <span class="m-radio-btn" id="m-radio-btn"></span>
+                                                <input type="radio" name="Gender" checked="checked" value="1">
+                                                <span class="m-radio-btn" value="1"></span>
                                             </label>
                                             <label class="radio-btn">Nữ
-                                                <input type="radio" name="gender">
-                                                <span class="m-radio-btn" id="m-radio-btn"></span>
+                                                <input type="radio" name="Gender" value="0">
+                                                <span class="m-radio-btn" value="0"></span>
                                             </label>
                                             <label class="radio-btn">Khác
-                                                <input type="radio" name="gender">
-                                                <span class="m-radio-btn" id="m-radio-btn"></span>
+                                                <input type="radio" name="Gender" value="2">
+                                                <span class="m-radio-btn" value="2"></span>
                                             </label>
                                         </div>
                                     </div>
@@ -251,18 +263,27 @@
                         </div>
                         <div class="m-row m-row-flex">
                             <div class="m-col m-col-w50">
-                                <div class="m-label">Đơn vị<span class="m-input-require">&nbsp;*</span></div>
-                                <input class="m-input" type="text" id="dtDateOfBirth">
+                                <div class="m-label">Đơn vị</div>
+                                <combobox api="amis.fdfd" textDisplay="DepartmentName" ValueField="DepartmentId">
+                                </combobox>
+    
+                                <div id="cbxDepartment" class="mcombobox">
+                                    <input class="m-combo-box" type="text" class="m-combobox-input">
+                                    <button tabindex="-1" class="m-combobox-button"><i class="fas fa-chevron-down"></i></button>
+                                    <div class="m-combobox-data">
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="m-col m-col-w50">
                                 <div class="m-row m-row-flex">
                                     <div class="m-col m-col-w60">
                                         <div class="m-label">Số CMND</div>
-                                        <input class="m-input" type="text" id="txtEmployeeCode">
+                                        <input class="m-input" type="text" id="txtIdentityNumber">
                                     </div>
                                     <div class="m-col m-col-w40">
                                         <div class="m-label">Ngày cấp</div>
-                                        <input class="m-input" type="date" id="dtDateOfBirth">
+                                        <input class="m-input" type="date" id="txtIdentityDate">
                                     </div>
                                 </div>
                             </div>
@@ -270,11 +291,11 @@
                         <div class="m-row m-row-flex">
                             <div class="m-col m-col-w50">
                                 <div class="m-label">Chức danh</div>
-                                <input class="m-input" type="text" id="txtEmail">
+                                <input class="m-input" type="text" id="txtPositionName">
                             </div>
                             <div class="m-col m-col-w50">
                                 <div class="m-label">Nơi cấp</div>
-                                <input class="m-input" type="text" id="txtPhoneNumber">
+                                <input class="m-input" type="text" id="txtIdentityPlace">
                             </div>
                         </div>
                         <div class="m-row m-row-flex">
@@ -286,29 +307,29 @@
                         <div class="m-row m-row-flex">
                             <div class="m-col m-col-w25">
                                 <div class="m-label">ĐT di động</div>
-                                <input class="m-input" type="text" id="txtSalary">
+                                <input class="m-input" type="text" id="txtPhoneNumber">
                             </div>
                             <div class="m-col m-col-w25">
                                 <div class="m-label">ĐT cố định</div>
-                                <input class="m-input" type="text" id="txtSalary">
+                                <input class="m-input" type="text" id="txtTelePhoneNumber">
                             </div>
                             <div class="m-col m-col-w25">
                                 <div class="m-label">Email</div>
-                                <input class="m-input" type="text" id="txtSalary">
+                                <input class="m-input" type="text" id="txtEmail">
                             </div>
                         </div>
                         <div class="m-row m-row-flex">
                             <div class="m-col m-col-w25">
                                 <div class="m-label">Tài khoản ngân hàng</div>
-                                <input class="m-input" type="text" id="txtSalary">
+                                <input class="m-input" type="text" id="txtBankAccountNumber">
                             </div>
                             <div class="m-col m-col-w25">
                                 <div class="m-label">Tên Ngân Hàng</div>
-                                <input class="m-input" type="text" id="txtSalary">
+                                <input class="m-input" type="text" id="txtBankName">
                             </div>
                             <div class="m-col m-col-w25">
                                 <div class="m-label">Chi nhánh</div>
-                                <input class="m-input" type="text" id="txtSalary">
+                                <input class="m-input" type="text" id="txtBankBranchName">
                             </div>
                         </div>
                     </div>
@@ -320,6 +341,19 @@
             </div>
         </div>
     </div>
+    <div id="dlgDeletePopup" class="m-dialog">
+        <div class="m-popup m-delete-popup">
+            <div class="m-popup-content">
+                <div class="m-popup-icon m-icon-warning"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="m-popup-text">Bạn có thực sự muốn xóa Khách hàng này hay không?</div>
+            </div>
+            <div class="m-popup-footer">
+                <button id="btnDeleteCancel" class='m-btn m-btn-nobackground'>Không</button>
+                <button id="delete-btn" class='m-btn'>Có</button>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="m-loading">
         <div class="m-loading-icon"></div>
     </div>

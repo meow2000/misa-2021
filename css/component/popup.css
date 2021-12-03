@@ -1,4 +1,4 @@
-.m-popup {
+/* .m-popup {
     position: absolute;
     z-index: 100;
     top: 50%;
@@ -9,8 +9,25 @@
     width: 900px;
     height: 625px;
     background-color: #fff;
+} */
+
+
+.m-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 400px;
+    background-color: #fff;
 }
 
+.m-popup.m-add-popup {
+    position: absolute;
+    width: 900px;
+    height: 625px;
+}
 .m-popup-auto-width {
     width: auto !important;
 }
@@ -54,6 +71,10 @@
 .m-popup .m-popup-content {
     display: flex;
     padding: 24px;
+    /* height: 435px; */
+}
+
+.m-add-popup .m-popup-content {
     height: 435px;
 }
 
@@ -62,26 +83,22 @@
     height: 60px;
     background-color: #E9EBEE;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     padding: 0 24px;
-}
-
-.m-popup .m-popup-footer button {
-    margin-left: 16px;
 }
 
 .m-popup .m-popup-icon {
     width: 40px;
     height: 40px;
-    background-color: #E9EBEE;
-    border-radius: 50%;
+    /* background-color: #E9EBEE; */
     text-align: center;
     line-height: 40px;
-    font-size: 16px;
+    font-size: 30px;
 }
 
 .m-popup .m-popup-text {
     margin-left: 10px;
+    font-size: 13px;
 }
 
 .m-dialog {
@@ -115,6 +132,13 @@
     margin-left: 10px;
 }
 
+.m-delete-popup .m-popup-footer {
+    background-color: #fff;
+    border-top: 1px solid rgb(201, 195, 195);
+    margin: 0 24px;
+    justify-content: space-between;
+    padding: 0;
+}
 .radio-btn-wrapper {
     display: flex;
     align-items: center;

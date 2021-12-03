@@ -18,6 +18,10 @@
     align-items: center; */
 }
 
+.m-icon-warning {
+    color: rgb(255, 165, 0);
+}
+
 .menu-item__icon {
     margin-right: 8px;
     width: 24px;

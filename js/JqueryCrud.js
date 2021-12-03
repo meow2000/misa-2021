@@ -1,12 +1,19 @@
 $(document).ready(function () {
     formMode = null;
+    var selectedId = null;
     loadData();
+    loadDepartmentComboboxData();
     // event when click delete btn
-    $("table#tblEmployee").on('click', '#delete-btn', function() {
-        debugger
-        var employeeId = $(this).val();
-        deleteEmp(employeeId);
+    $("table#tblEmployee").on('click', '#show-delete-popup-btn', function() {
+        // debugger
+        selectedId = $(this).attr("id-value");
+        $("#dlgDeletePopup").show();
+        $("#delete-btn").click(() => {
+            deleteEmp(selectedId);
+            $('#dlgDeletePopup').hide()
+        })
     });
+
     // event when click add btn
     $('#btnAdd').click(() => {
         formMode="add";
@@ -26,7 +33,7 @@ $(document).ready(function () {
         const employeeCode = $('#txtEmployeeCode').val();
         const fullName = $('#txtFullName').val();
         const dateOfBirh = $('#dtDateOfBirth').val();
-        const gender = $('#Gender').data('value');
+        const gender = $('input[name="Gender"]:checked').val();
         const position = $('#txtPositionName').val();
         const identityNumber = $('#txtIdentityNumber').val();
         const identityDate = $('#txtIdentityDate').val();
@@ -39,6 +46,7 @@ $(document).ready(function () {
         const bankNumber = $('#txtBankAccountNumber').val();
         const bankName = $('#txtBankName').val();
         const bankBranchName = $('#txtBankBranchName').val();
+        // debugger
         let employee = {
             "employeeCode": employeeCode,
             "employeeName": fullName,
@@ -51,8 +59,8 @@ $(document).ready(function () {
             "bankAccountNumber": bankNumber,
             "bankName": bankName,
             "bankBranchName": bankBranchName,
-            "positionName": position,
-            "departmentName": departmentName,
+            "employeePosition": position,
+            "departmentID": departmentName,
             "email": email,
             "address": address,
             "gender": gender,
@@ -74,32 +82,70 @@ $(document).ready(function () {
                 }
             });
         }
+
+        $('#dlgPopup').hide();
+    });
+    $('#show-delete-popup-btn').click(() => {
+        $('#dlgDeletePopup').show();
     });
     // close popup form
+    $('#btnCancel').click(() => {
+        $('#dlgPopup').hide();
+    });
+    $('#btnDeleteCancel').click(() => {
+        $('#dlgDeletePopup').hide();
+    });
+    
+    // $('').click(() => {
+    //     document.getElementById("dropdown-content").classList.toggle("show");
+    // });
     $('#btnCloseDialog').click(() => {
         $('#dlgPopup').hide();
     });
-
     // $("#checkAll").click(function(){
     //     var checkBoxes = $('document').find('input');
     //     // var checkBoxes = $(this).find("input");
     //     checkBoxes.prop("checked", !checkBoxes.prop("checked"));
     // });
+    $('table#tblEmployee').on('click', 'tbody tr', RowOnClick);
 });
 
+function RowOnClick(sender) {
+    debugger
+    $(sender.target).find(".dropdown-content").toggleClass("show");
+}
+
 function deleteEmp(employeeId) {
+    // debugger
     $.ajax({
         type: "DELETE",
         url: `http://amis.manhnv.net/api/v1/Employees/${employeeId}`,
         success: function (response) {
-            alert("deleted");
+            // alert("deleted");
             loadData();
         }
     });
 }
 
-function RowOnClick(sender) {
-    alert("meow");
+function loadDepartmentComboboxData() {
+    // Lấy dữ liệu về:
+    $.ajax({
+        type: "GET",
+        url: "http://amis.manhnv.net/api/v1/Departments",
+        success: function(response) {
+            // Build combobox:
+            
+            for (const department of response) {
+                // let optionHTML = `<option value="${department.DepartmentId}">${department.DepartmentName}</option>`;
+                let optionHTML = `<div class="m-combobox-item" value="${department.DepartmentId}">${department.DepartmentName}</div>`;
+
+                $('#cbxDepartment .m-combobox-data').append(optionHTML);
+                let itemDataElements = $('#cbxDepartment').find('.m-combobox-data').html();
+                $('#cbxDepartment').data("itemDataElement", itemDataElements);
+            }
+        }
+    });
+
 }
 
 function loadData() {
@@ -143,7 +189,7 @@ function loadData() {
                 <td class="text-align-left">${emp.GenderName}</td>
                 <td class="text-align-center">${dateOfBirth}</td>
                 <td class="text-align-left">${emp.IdentityNumber}</td>
-                <td class="text-align-left">${emp.PositionName}</td>
+                <td class="text-align-left">${emp.EmployeePosition}</td>
                 <td class="text-align-left">${emp.DepartmentName}</td>
                 <td class="text-align-left">${emp.BankAccountNumber}</td>
                 <td class="text-align-left">${emp.BankName}</td>
@@ -151,7 +197,14 @@ function loadData() {
                 <td class="text-align-center">
                     <div class="td__edit-delete-wrapper">
                         <div id="edit-btn" class="td__edit-btn">Sửa</div>
-                        <button id="delete-btn" class="td__dropdown-icon" value="${emp.EmployeeId}"></button>
+                        <div class="td__dropdown dropdown-wrapper">
+                            <!-- <button id="show-delete-popup-btn" class='td__dropdown-icon'></button> -->
+                            <button id="dropdown-menu" class="td__dropdown-icon">
+                                <div id="dropdown-content" class="td__dropdown-content dropdown-content">
+                                    <div id="show-delete-popup-btn" class="dropdown-item" id-value=${emp.EmployeeId}>Xóa</div>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </td>
             </tr>`);

@@ -46,10 +46,10 @@
 }
 
 .right-container__avatar {
+    background-image: url('../../Resource/img/avatar-default.png');
     width: 30px;
     height: 30px;
-    margin-right: 8px;
-    background-color: black;
+    margin-right: 16px;
 }
 
 .right-container__username {

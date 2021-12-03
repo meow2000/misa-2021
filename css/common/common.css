@@ -9,7 +9,9 @@
 @import url('../../css/component/popup.css');
 @import url('../../css/component/input.css');
 @import url('../../css/component/radioButton.css');
-
+@import url('../../css/component/combobox.css');
+@import url('../../css/component/toast-messenger.css');
+@import url('../../css/component/dropdown.css');
 body {
     font-family: notoSans;
     margin: 0;
