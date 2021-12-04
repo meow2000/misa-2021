@@ -32,12 +32,18 @@ input.m-input {
     border-color: #FF4747;
 }
 
-input.m-input-search {
-    background-image: url('/source/Resource/icon/search.png');
+.m-input-search {
+    background-image: url('../../Resource/img/search.png');
     background-repeat: no-repeat;
-    background-position: 16px center;
-    background-size: 16px 16px;
-    padding-left: 40px;
+    /* left: auto; */
+    right: 24px;
+    top: -8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: relative;
+    height: 16px;
+    width: 16px;
+    /* padding-left: 40px; */
 }
 
 .m-combobox{

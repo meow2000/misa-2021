@@ -3,6 +3,7 @@ $(document).ready(function () {
     var selectedId = null;
     loadData();
     loadDepartmentComboboxData();
+    $("#txtFullName").prop('required',true);
     // event when click delete btn
     $("table#tblEmployee").on('click', '#show-delete-popup-btn', function() {
         // debugger
@@ -12,6 +13,36 @@ $(document).ready(function () {
             deleteEmp(selectedId);
             $('#dlgDeletePopup').hide()
         })
+    });
+
+    $("table#tblEmployee").on('click', '#edit-btn', function() {
+        debugger
+        selectedId = $(this).attr("id-value");
+        formMode = "edit";
+        $.ajax({
+            type: "GET",
+            url: `http://amis.manhnv.net/api/v1/Employees/${selectedId}`,
+            success: function (emp) {
+                $('#txtEmployeeCode').val(emp.EmployeeCode);
+                $('#txtFullName').val(emp.EmployeeName);
+                $('#dtDateOfBirth').val();
+                $('input[name="Gender"]:checked').val(emp.Gender);
+                $('#txtPositionName').val(emp.EmployeePosition);
+                $('#txtIdentityNumber').val(emp.IdentityNumber);
+                $('#txtIdentityDate').val();
+                $('#txtIdentityPlace').val();
+                $('#cbxDepartment').data('value', emp.DepartmentId);
+                $('#txtAddress').val(emp.Address);
+                $('#txtPhoneNumber').val(emp.PhoneNumber);
+                $('#txtTelePhoneNumber').val(emp.TelephoneNumber);
+                $('#txtEmail').val(emp.Email);
+                $('#txtBankAccountNumber').val(emp.BankAccountNumber);
+                $('#txtBankName').val(emp.BankName);
+                $('#txtBankBranchName').val(emp.BankBranchName);
+            
+                $('#dlgPopup').show();
+            }
+        });
     });
 
     // event when click add btn
@@ -60,12 +91,12 @@ $(document).ready(function () {
             "bankName": bankName,
             "bankBranchName": bankBranchName,
             "employeePosition": position,
-            "departmentID": departmentName,
+            "departmentId": departmentName,
             "email": email,
             "address": address,
             "gender": gender,
         };
-
+        debugger
         if(formMode == 'add') {
             $.ajax({
                 type: "POST",
@@ -81,9 +112,25 @@ $(document).ready(function () {
                     console.log(res);
                 }
             });
+        } else {
+            $.ajax({
+                type: "PUT",
+                url: `http://amis.manhnv.net/api/v1/Employees/${selectedId}`,
+                data: JSON.stringify(employee),
+                dataType: "json",
+                async: false,
+                contentType: "application/json",
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(res) {
+                    console.log(res);
+                }
+            });
         }
 
         $('#dlgPopup').hide();
+        loadData();
     });
     $('#show-delete-popup-btn').click(() => {
         $('#dlgDeletePopup').show();
@@ -111,7 +158,7 @@ $(document).ready(function () {
 });
 
 function RowOnClick(sender) {
-    debugger
+    // debugger
     $(sender.target).find(".dropdown-content").toggleClass("show");
 }
 
@@ -152,21 +199,24 @@ function loadData() {
     // empty body data
     let employees = [];
     $('tbody').empty();
+    let searchText = $('#txtSearchInput').val();
+    const pageSize = $('#recordPerPage').val();
+    pageNumber = 1;
     // GET data to employees
     $.ajax({
         type: "GET",
-        url: "http://amis.manhnv.net/api/v1/Employees",
+        url: `http://amis.manhnv.net/api/v1/Employees/filter?pageSize=${pageSize}&pageNumber=${pageNumber}&employeeFilter=${searchText}`,
         async: false,
         dataType: "Json",
         success: function (response) {
-            employees = response;
+            mlem = response;
         },
         error: function(res) {
             console.log("error");
         }
     });
     // console.log("2");
-    console.log(employees);
+    employees = mlem.Data;
     for (const emp of employees) {
         // format JSON date to mm/dd/yyyy
         let dateOfBirth = new Date(emp.DateOfBirth);
@@ -196,7 +246,7 @@ function loadData() {
                 <td class="text-align-left">${emp.BankBranchName}</td>
                 <td class="text-align-center">
                     <div class="td__edit-delete-wrapper">
-                        <div id="edit-btn" class="td__edit-btn">Sửa</div>
+                        <div id="edit-btn" class="td__edit-btn" id-value="${emp.EmployeeId}">Sửa</div>
                         <div class="td__dropdown dropdown-wrapper">
                             <!-- <button id="show-delete-popup-btn" class='td__dropdown-icon'></button> -->
                             <button id="dropdown-menu" class="td__dropdown-icon">

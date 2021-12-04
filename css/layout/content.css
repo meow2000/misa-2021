@@ -41,11 +41,26 @@
     height: 36px;
 }
 
-.content-wrapper__header__search-input {
-    width: 200px;
+.content-wrapper__header__search-wrapper {
+    width: 240px;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: flex-end;
+    justify-content: center;
     height: 32px;
     margin-right: 32px;
-    background-color: #111;
+}
+
+#reload-btn {
+    border: none;
+    background-color: #FFF;
+}
+
+#txtSearchInput {
+    margin-top: 0;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 2.75rem;
 }
 
 .content-wrapper__header__refresh-btn {
@@ -112,6 +127,10 @@
     display: flex;
     justify-content: right;
     padding-right: 16px;
+}
+
+#recordPerPage {
+    height: 30px;
 }
 
 .td__edit-delete-wrapper {    

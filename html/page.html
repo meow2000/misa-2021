@@ -120,7 +120,10 @@
             <div class="content-wrapper">
                 <!-- search and refresh button -->
                 <div class="content-wrapper__header">
-                    <div class="content-wrapper__header__search-input"></div>
+                    <div class="content-wrapper__header__search-wrapper">
+                        <input id="txtSearchInput" class="m-input" type="text" placeholder="Tìm kiếm thông tin">
+                        <button id="reload-btn" class="m-input-search" onclick="loadData()"></button>
+                    </div>
                     <div class="content-wrapper__header__refresh-btn">
                         <button class="refresh-btn" onclick="loadData()"></button>
                     </div>
@@ -189,11 +192,20 @@
                 </div>
                 <div class="content-wrapper__pagination">
                     <div class="content-wrapper__pagination__left">Tổng số <b>1055</b> bản ghi</div>
-                    <div class="content-wrapper__pagination__right"></div>
+                    <div class="content-wrapper__pagination__right">
+                        <select name="recordPerPage" id="recordPerPage" class="m-combobox">
+                            <option value="10">10 bản ghi trên 1 trang</option>
+                            <option value="20">20 bản ghi trên 1 trang</option>
+                            <option value="30">30 bản ghi trên 1 trang</option>
+                            <option value="50">50 bản ghi trên 1 trang</option>
+                            <option value="100">100 bản ghi trên 1 trang</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- add/edit popup -->
     <div id="dlgPopup" class="m-dialog">
         <div class="m-row">
             <div class="m-popup m-add-popup">
@@ -341,6 +353,7 @@
             </div>
         </div>
     </div>
+    <!-- delete popup -->
     <div id="dlgDeletePopup" class="m-dialog">
         <div class="m-popup m-delete-popup">
             <div class="m-popup-content">
