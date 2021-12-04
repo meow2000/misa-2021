@@ -8,6 +8,10 @@
     width: 100%;
 }
 
+input.m-combo-box.m-input-error {
+    border-color: #FF4747;
+}
+
 .m-combo-box:focus {
     border-color: #019160;
 }

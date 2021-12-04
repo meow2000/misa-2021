@@ -14,9 +14,12 @@ $(document).ready(function () {
             $('#dlgDeletePopup').hide()
         })
     });
+    $("input[type=text]").focus(function(sender) {
+        $(sender.target).removeClass("m-input-error");
+    });
 
     $("table#tblEmployee").on('click', '#edit-btn', function() {
-        debugger
+        // debugger
         selectedId = $(this).attr("id-value");
         formMode = "edit";
         $.ajax({
@@ -96,7 +99,6 @@ $(document).ready(function () {
             "address": address,
             "gender": gender,
         };
-        debugger
         if(formMode == 'add') {
             $.ajax({
                 type: "POST",
@@ -107,9 +109,23 @@ $(document).ready(function () {
                 contentType: "application/json",
                 success: function(response) {
                     console.log(response);
+                    $('#dlgPopup').hide();
+                    loadData(); 
                 },
                 error: function(res) {
                     console.log(res);
+                    debugger
+                    if(res.status === 400) {
+                        if(employeeCode.trim() === "") {
+                            $('#txtEmployeeCode').toggleClass("m-input-error");
+                        }
+                        if(fullName.trim() === "") {
+                            $('#txtFullName').toggleClass("m-input-error");
+                        }
+                        if($('#cbxDepartment').data('value') === undefined) {
+                            $('#cbxDepartment .m-combo-box').toggleClass("m-input-error");
+                        }
+                    }
                 }
             });
         } else {
@@ -122,6 +138,8 @@ $(document).ready(function () {
                 contentType: "application/json",
                 success: function(response) {
                     console.log(response);
+                    $('#dlgPopup').hide();
+                    loadData();
                 },
                 error: function(res) {
                     console.log(res);
@@ -129,8 +147,7 @@ $(document).ready(function () {
             });
         }
 
-        $('#dlgPopup').hide();
-        loadData();
+        
     });
     $('#show-delete-popup-btn').click(() => {
         $('#dlgDeletePopup').show();
@@ -155,6 +172,7 @@ $(document).ready(function () {
     //     checkBoxes.prop("checked", !checkBoxes.prop("checked"));
     // });
     $('table#tblEmployee').on('click', 'tbody tr', RowOnClick);
+    $('#recordPerPage').on('change', loadData);
 });
 
 function RowOnClick(sender) {
@@ -217,6 +235,7 @@ function loadData() {
     });
     // console.log("2");
     employees = mlem.Data;
+    $('#records').text(mlem.TotalRecord);
     for (const emp of employees) {
         // format JSON date to mm/dd/yyyy
         let dateOfBirth = new Date(emp.DateOfBirth);

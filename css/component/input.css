@@ -54,7 +54,7 @@ input.m-input {
     outline: unset;
 }
 .m-combobox:focus{
-    border-color: #019160;
+    border-color: #019160 !important;
 }
 
 .m-label {

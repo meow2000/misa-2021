@@ -96,7 +96,7 @@
 }
 
 .content-wrapper__pagination {
-    z-index: 3;
+    /* z-index: 3; */
     position: absolute;
     left: 16px;
     right: 16px;
