@@ -3,7 +3,6 @@ $(document).ready(function () {
     var selectedId = null;
     loadData();
     loadDepartmentComboboxData();
-    $("#txtFullName").prop('required',true);
     // event when click delete btn
     $("table#tblEmployee").on('click', '#show-delete-popup-btn', function() {
         // debugger

@@ -9,9 +9,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <!-- jquery -->
     <script src="../js/lib/jquery-3.6.0.min.js"></script>
+    <!-- common js -->
     <script src="../js/common/combobox.js"></script>
     <script src="../js/common/dropdown.js"></script>
-    <script src="../js/JqueryCrud.js"></script>
+    <script src="../js/common/input.js"></script>
+    <script src="../js/common/common.js"></script>
+    <!-- employee page js -->
+    <!-- OOP -->
+    <script src="../js/OOP/employeePage.js"></script>
+    <!-- not OOP -->
+    <!-- <script src="../js/JqueryCrud.js"></script> -->
     <title>Nhân viên</title>
 </head>
 <body>
@@ -122,10 +129,10 @@
                 <div class="content-wrapper__header">
                     <div class="content-wrapper__header__search-wrapper">
                         <input id="txtSearchInput" class="m-input" type="text" placeholder="Tìm kiếm thông tin">
-                        <button id="reload-btn" class="m-input-search" onclick="loadData()"></button>
+                        <button id="reload-btn" class="m-input-search"></button>
                     </div>
                     <div class="content-wrapper__header__refresh-btn">
-                        <button class="refresh-btn" onclick="loadData()"></button>
+                        <button id="refresh-btn" class="refresh-btn"></button>
                     </div>
                 </div>
                 <!-- table content -->
